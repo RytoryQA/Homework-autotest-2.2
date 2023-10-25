@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static sun.text.normalizer.NormalizerImpl.UTF16Plus.equal;
 
 public class PostmanEchoTest {
 
@@ -19,7 +20,7 @@ public class PostmanEchoTest {
                 .post("/post")
                 .then()
                 .statusCode(200)
-                .body("data", equals("Привет из Постмана"))
+                .body("data", equal("Привет из Постмана"))
         ;
 
     }
